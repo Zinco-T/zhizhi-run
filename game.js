@@ -2,7 +2,7 @@
   'use strict';
   const $=id=>document.getElementById(id),canvas=$('canvas'),ctx=canvas.getContext('2d');
   const names=['教室里的日常','出门就是好心情','冬日暖暖','好好吃饭','夜色正好','运动一下'];
-  const runner=new Image();runner.src='assets/runner.png';const portrait=new Image();portrait.src='assets/zhizhi.png';
+  const runner=new Image();runner.src='assets/runner.webp';const portrait=new Image();portrait.src='assets/zhizhi.webp';
   const memoryImages=names.map((_,i)=>{const img=new Image();img.src=`assets/memory-${i+1}.jpg`;return img;});
   const readNumber=key=>{try{const value=Number(localStorage.getItem(key));return Number.isFinite(value)&&value>0?value:0;}catch{return 0;}};
   let best=readNumber('zhizhi-best'),unlocked=Math.min(6,Math.floor(best/100));
@@ -37,7 +37,7 @@
     for(const s of stars)star(s.x,s.y+Math.sin(elapsed*4+s.x*.02)*3,12);
     for(const o of obstacles){rounded(o.x-3,ground-o.h,o.w+6,o.h,5,o.hit?'#bc9b72':'#e99b4f');rounded(o.x+2,ground-o.h+9,o.w-4,9,2,'#fff2c6');ctx.fillStyle='#b5753f';ctx.fillRect(o.x-5,ground-5,o.w+10,5);}
     ctx.save();ctx.globalAlpha=.15;ctx.fillStyle='#244d32';ctx.beginPath();ctx.ellipse(player.x+player.size*.5,ground+4,player.size*.3*(1-player.y/450),6,0,0,Math.PI*2);ctx.fill();ctx.restore();
-    ctx.save();if(invulnerable>0&&Math.floor(elapsed*12)%2)ctx.globalAlpha=.35;const bob=player.y===0&&!reduced?Math.sin(elapsed*18)*3:0;ctx.translate(player.x+player.size/2,ground-player.y-player.size/2+bob);ctx.rotate(player.y>0?-.10:reduced?0:Math.sin(elapsed*18)*.035);if(runner.complete&&runner.naturalWidth){ctx.drawImage(runner,-player.size/2,-player.size/2,player.size,player.size);}else if(portrait.complete&&portrait.naturalWidth){ctx.save();ctx.beginPath();ctx.arc(0,0,player.size*.38,0,Math.PI*2);ctx.clip();ctx.drawImage(portrait,-player.size/2,-player.size*.6,player.size,player.size*1.33);ctx.restore();}ctx.restore();
+    ctx.save();if(invulnerable>0&&Math.floor(elapsed*12)%2)ctx.globalAlpha=.35;const bob=player.y===0&&!reduced?Math.sin(elapsed*18)*3:0;ctx.translate(player.x+player.size/2,ground-player.y-player.size/2+bob);ctx.rotate(player.y>0?-.10:reduced?0:Math.sin(elapsed*18)*.035);if(runner.complete&&runner.naturalWidth){ctx.drawImage(runner,-player.size/2,-player.size/2,player.size,player.size);}else if(portrait.complete&&portrait.naturalWidth){ctx.drawImage(portrait,-player.size*.46,-player.size*.5,player.size*.92,player.size);}else{ctx.fillStyle='#204f3a';ctx.beginPath();ctx.ellipse(0,0,player.size*.3,player.size*.48,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#f7ebd3';ctx.beginPath();ctx.arc(0,-player.size*.12,player.size*.19,0,Math.PI*2);ctx.fill();}ctx.restore();
     particles.forEach(p=>{ctx.globalAlpha=Math.max(0,p.life/.55);ctx.fillStyle=p.color;ctx.fillRect(p.x,p.y,5,5);});ctx.globalAlpha=1;
     ctx.fillStyle='#48633d';ctx.font='12px "Microsoft YaHei",sans-serif';if(elapsed<5){ctx.textAlign='center';ctx.fillText('点一下跳跃，再点一下跳得更高',W/2,ground-190);ctx.textAlign='left';}
   }
