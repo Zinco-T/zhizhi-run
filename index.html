@@ -14,18 +14,18 @@
   <section class="game-section" aria-label="之之快跑游戏">
     <div class="section-top"><span class="eyebrow"><i></i> 今日宜 · 向快乐出发</span><span class="best">本机最佳 <b id="best">0</b> m</span></div>
     <div class="game" id="game">
-      <canvas id="canvas" aria-label="跑酷场景，轻点屏幕跳跃，空中连续点按可以一直连跳"></canvas>
+      <canvas id="canvas" aria-label="跑酷场景，轻点屏幕起跳，空中还可补跳一次，落地后刷新"></canvas>
       <div class="hud"><div><span>奔跑距离</span><strong><b id="distance">0</b><small> m</small></strong></div><div class="stars"><span>收集星星</span><strong><em>✦</em> <b id="coins">0</b></strong></div><button class="icon-button pause" id="pause" aria-label="暂停游戏" disabled>Ⅱ</button></div>
-      <div class="start-screen" id="start-screen"><div class="start-copy"><span class="chapter">CHAPTER 01 / 快乐不设终点</span><h1>之之<span>快跑<span class="title-star">✦</span></span></h1><p>把普通的一天，跑成闪闪发光的回忆。</p><button class="primary" id="start">开始奔跑 <span>↗</span></button><div class="start-hint">轻点跳跃 · 空中连续点按可一直连跳</div></div><div class="hero-portrait"><span class="orbit-note">READY, ZHIZHI?</span><img src="assets/zhizhi.webp" alt="穿绿色校服的之之卡通形象"><span class="portrait-label">今天也要开心呀！ <b>✦</b></span></div></div>
+      <div class="start-screen" id="start-screen"><div class="start-copy"><span class="chapter">CHAPTER 01 / 快乐不设终点</span><h1>之之<span>快跑<span class="title-star">✦</span></span></h1><p>把普通的一天，跑成闪闪发光的回忆。</p><button class="primary" id="start">开始奔跑 <span>↗</span></button><div class="start-hint">轻点起跳 · 空中可补跳一次，落地后继续连跳</div></div><div class="hero-portrait"><span class="orbit-note">READY, ZHIZHI?</span><img src="assets/zhizhi.webp" alt="穿绿色校服的之之卡通形象"><span class="portrait-label">今天也要开心呀！ <b>✦</b></span></div></div>
       <div class="dialog-overlay hidden" id="overlay" role="dialog" aria-modal="true" aria-labelledby="overlay-title"><div class="result"><span class="eyebrow" id="result-kicker">休息一下</span><h2 id="overlay-title">快乐暂停中</h2><p id="result-detail">准备好了，就继续出发。</p><div id="result-stats" class="result-stats"></div><button class="primary" id="resume">继续奔跑 <span>↗</span></button><button class="text-button" id="restart">重新开始</button></div></div>
       <div class="toast hidden" id="toast" aria-live="polite"></div>
       <div class="track-label">ZHIZHI RUN CLUB <span>✦</span> EVERY LITTLE MOMENT COUNTS</div>
     </div>
-    <div class="game-footer"><div class="controls"><span><kbd>空格 / ↑</kbd> 跳跃</span><span><kbd>空中连续点按</kbd> 一直连跳</span><span><kbd>P</kbd> 暂停</span></div><span class="tip">轻点跳跃，空中连续点按可一直连跳。</span><button class="mobile-jump" id="jump">轻点跳跃 ↑</button></div>
+    <div class="game-footer"><div class="controls"><span><kbd>空格 / ↑</kbd> 起跳</span><span><kbd>空中再按</kbd> 补跳一次</span><span><kbd>P</kbd> 暂停</span></div><span class="tip">落地后会刷新跳跃次数，可以继续连跳。</span><button class="mobile-jump" id="jump">轻点跳跃 ↑</button></div>
   </section>
   <section class="memories" aria-labelledby="memory-heading"><div class="memory-header"><div><span class="eyebrow">MOMENTS ON THE WAY</span><h2 id="memory-heading">沿途的小美好<span id="memory-count">0 / 6</span></h2></div><p>每跑过 100 米，解锁一张之之的回忆。</p></div><div class="photo-grid" id="photos"></div></section>
   <footer class="page-footer"><span>只管向前跑，好心情会追上你。</span><span>MADE FOR 之之 <b>♥</b></span></footer>
 </main>
 <dialog id="photo-dialog"><button class="close" id="close-photo" aria-label="关闭照片">×</button><img id="full-photo" alt=""><p id="photo-caption"></p></dialog>
-<script src="game.js?v=7"></script>
+<script src="game.js?v=9"></script>
 </body></html>
